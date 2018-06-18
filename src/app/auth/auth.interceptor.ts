@@ -29,6 +29,6 @@ export class AuthInterceptor implements HttpInterceptor {
                     }
                 ));
         }
-        this.router.navigateByUrl('/signin');
+        this.router.navigateByUrl('/main-page');
     }
 }

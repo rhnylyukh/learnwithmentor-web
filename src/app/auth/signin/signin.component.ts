@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../common/services/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
+import { Register } from '../../common/models/register';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
 
+  register: Register;
   isLoginError : boolean = false;
   constructor(private userService : UserService,private router : Router) { }
 

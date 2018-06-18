@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './admin/user/users/users.component';
 import { CommentComponent } from './task/comment/comment.component';
-
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -14,7 +13,9 @@ const routes: Routes = [
 {path : 'main-page', component : MainPageComponent},
 {path : 'users', component : UsersComponent},
 {path : 'comment', component : CommentComponent},
-{ path: 'tasks', component: TasksComponent }
+{ path: 'tasks', component: TasksComponent },
+{path : 'main-page', component : MainPageComponent},
+{path : 'main-page', component : MainPageComponent}
 ];
 
 @NgModule({

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './admin/user/users/users.component';
 import { CommentComponent } from './task/comment/comment.component';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,7 +24,8 @@ import { MatExpansionModule, MatAccordion, MatExpansionPanel } from '@angular/ma
 import { TaskEditorComponent } from './task/task-editor/task-editor.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule, MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
-
+import { UserService } from './common/services/user.service';
+import { AuthGuard } from './auth/auth.guard';
 import { MainPageComponent } from './main-page/main-page.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -35,7 +36,11 @@ import {GalleryComponent} from './main-page/gallery/gallery.component';
 import {BenefitsComponent} from './main-page/benefits/benefits.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule }   from '@angular/forms';
 import { MaterialModule } from './material.module';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes/routes';
 
 
 @NgModule({
@@ -74,9 +79,17 @@ import { MaterialModule } from './material.module';
     MatSidenavModule,
     MatTableModule,
     MaterialModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [UserService,AuthGuard,
+    ,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true
+    }],
   bootstrap: [AppComponent],
   entryComponents: [TaskEditorComponent, SigninComponent, SignupComponent]
 
