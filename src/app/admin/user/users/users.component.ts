@@ -41,7 +41,6 @@ export class UsersComponent implements OnInit {
     return this.id = id;
   }
 
-
   constructor(private userService: UserService) {
 
   }
@@ -66,6 +65,8 @@ export class UsersComponent implements OnInit {
       });
     }
   }
+
+  
 
   blockUser(id: number, name: string, surname: string) {
     if (window.confirm('Are sure you want to block ' + name + ' ' + surname + ' ?')) {

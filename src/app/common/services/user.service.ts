@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-
+import { Register } from '..//models/register';
 import { Role } from '../models/role';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -45,9 +45,16 @@ export class UserService {
     );
   }
 
-  addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.url, user, this.httpOptions).pipe(
-      catchError(this.handleError<User>('addUser'))
+  registerUser(register: Register) {
+    const body: Register = {
+      FirstName: register.FirstName,
+      LastName: register.LastName,
+      Password: register.Password,
+      Email: register.Email
+    }
+    var reqHeader = new HttpHeaders({'No-Auth':'True'});
+    return this.http.post(this.url + '/api/user', body,{headers : reqHeader}).pipe(
+      catchError(this.handleError<User>('registerUser'))
     );
   }
 
