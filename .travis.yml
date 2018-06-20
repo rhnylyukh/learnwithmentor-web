@@ -36,6 +36,7 @@ script:
  # - npm run build
 
 after_success:
+  - git clone https://github.com/rhnylyukh/learnwithmentor-web.git
   - git checkout master
   - git merge test
 
