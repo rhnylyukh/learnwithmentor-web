@@ -53,6 +53,8 @@ export class UserService {
       Email: register.Email
     }
     var reqHeader = new HttpHeaders({'No-Auth':'True'});
+    debugger
+    var a = this.url;
     return this.http.post(this.url, body,{headers : reqHeader}).pipe(
       catchError(this.handleError<User>('registerUser'))
     );

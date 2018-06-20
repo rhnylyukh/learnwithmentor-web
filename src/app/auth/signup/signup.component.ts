@@ -30,13 +30,13 @@ export class SignupComponent implements OnInit {
   }
 
   OnSubmit(form: NgForm) {
-    debugger
-    this.userService.registerUser(form.value)
-      .subscribe((data: any) => {
-        if (data.Succeeded == true) {
-          this.resetForm(form);
-         }
-      });
+    
+    const data: Register = {
+      Password: "1111",
+      Email: "user.Email",
+      FirstName: "user.FirstName",
+      LastName: "user.LastName"
   }
-
+    this.userService.registerUser(data);
+  }
 }
