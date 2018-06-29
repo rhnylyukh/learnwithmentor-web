@@ -37,6 +37,7 @@ script:
 
 after_success:
   - git clone https://github.com/rhnylyukh/learnwithmentor-web.git
+  - cd learnwithmentor-web/
   - git checkout master
   - git merge test
 
