@@ -12,6 +12,10 @@ cache:
 dist: trusty
 sudo: required
 
+env:
+  global:
+  - USER=$USER
+  - PASS=$PASS
 
 addons:
   github-token: $GITHUB_TOKEN
@@ -21,6 +25,9 @@ addons:
 
 
 before_script:
+ - git config --global user.email "rhnylyukh@gmail.com"
+ - git config --global user.name $USER
+ - git config --global user.password $PASS
  #install chrome
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
@@ -38,10 +45,8 @@ script:
 after_success:
   - git clone https://github.com/rhnylyukh/learnwithmentor-web.git
   - cd learnwithmentor-web/
-  - git config user.name $USER
-  - git config user.email "rhnylyukh@gmail.com"
-  - git config user.password $PASS
-  - git remote set-url --add --push origin https://github.com/rhnylyukh/learnwithmentor-web.git
+  - git remote rm origin
+  - git remote add origin https://rhnylyukh:${GITHUB_TOKEN}@github.com/rhnylyukh/learnwithmentor-web.git
   - git checkout test
   - git checkout master
   - git merge test
