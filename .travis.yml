@@ -39,7 +39,7 @@ script:
 after_success:
   - git config --local user.name "$USER"
   - git config --local user.email "rhnylyukh@gmail.com"
-  - git clone https://github.com/$USER/learnwithmentor-web.git
+  - git clone https://github.com/rhnylyukh/learnwithmentor-web.git
   - cd learnwithmentor-web/
   - git checkout test
   - git checkout master
