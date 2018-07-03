@@ -45,11 +45,11 @@ script:
 after_success:
   - git clone https://github.com/rhnylyukh/learnwithmentor-web.git
   - cd learnwithmentor-web/
-  - git remote add origin https://rhnylyukh:${GITHUB_TOKEN}@github.com/rhnylyukh/learnwithmentor-web.git
+  - git remote set-url origin https://github.com/rhnylyukh/learnwithmentor-web.git
   - git checkout test
   - git checkout master
   - git merge test
-  - git push origin master
+  - git push -u origin master
   
 after_script:
  - npm install -g codeclimate-test-reporter
