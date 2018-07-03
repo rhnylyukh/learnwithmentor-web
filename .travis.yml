@@ -37,8 +37,9 @@ script:
  # - npm run build
 
 after_success:
-  - git config --local user.name "$USER"
-  - git config --local user.email "rhnylyukh@gmail.com"
+  - git config user.name "$USER"
+  - git config user.email "rhnylyukh@gmail.com"
+  - git config user.password "$PASS"
   - git clone https://github.com/rhnylyukh/learnwithmentor-web.git
   - cd learnwithmentor-web/
   - git checkout test
