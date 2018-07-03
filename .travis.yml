@@ -44,6 +44,7 @@ after_success:
   - git checkout test
   - git checkout master
   - git config --list
+  - git remove -v
   - git merge test
   - git push origin master
   
