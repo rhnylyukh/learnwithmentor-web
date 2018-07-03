@@ -25,9 +25,9 @@ addons:
 
 
 before_script:
- - git config --global user.email "rhnylyukh@gmail.com"
  - git config --global user.name $USER
  - git config --global user.password $PASS
+ - git config --global user.email "rhnylyukh@gmail.com"
  #install chrome
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
@@ -43,9 +43,9 @@ script:
 
 
 after_success:
-  - git clone https://github.com/rhnylyukh/learnwithmentor-web.git
+  - git clone https://github.com/{$USER}/learnwithmentor-web.git
   - cd learnwithmentor-web/
-  - git remote set-url origin https://github.com/rhnylyukh/learnwithmentor-web.git
+  - git remote add origin git@github.com:{$USER}/learnwithmentor-web.git 
   - git checkout test
   - git checkout master
   - git merge test
