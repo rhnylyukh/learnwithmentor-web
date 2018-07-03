@@ -42,15 +42,14 @@ after_success:
   - git checkout test
   - git checkout master
   - git merge test
-  - git push
   
-#  deploy:
-#    provider: pages
-#    skip-cleanup: true
-#    github-token: $GITHUB_TOKEN
-#    keep-history: true
-#    on:
-#      branch: master
+ deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  on:
+    branch: master
 
 after_script:
  - npm install -g codeclimate-test-reporter
