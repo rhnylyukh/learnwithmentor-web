@@ -41,7 +41,7 @@ after_success:
   - git config user.name $USER
   - git config user.email "rhnylyukh@gmail.com"
   - git config user.password $PASS
-  - git remote set-url origin https://github.com/rhnylyukh/learnwithmentor-web.git
+  - git remote set-url --add --push origin https://github.com/rhnylyukh/learnwithmentor-web.git
   - git checkout test
   - git checkout master
   - git merge test
