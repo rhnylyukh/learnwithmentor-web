@@ -46,7 +46,7 @@ after_success:
   - git config --list
   - git remote -v
   - git merge test
-  - git remote set-url origin git@github.com:rhnylyukh/learnwithmentor-web.git
+  - git remote set-url origin https://github.com/rhnylyukh/learnwithmentor-web.git
   - git push origin master
   
 
