@@ -44,8 +44,9 @@ after_success:
   - git checkout test
   - git checkout master
   - git config --list
-  - git remove -v
+  - git remote -v
   - git merge test
+  - git remote set-url origin git@github.com:rhnylyukh/learnwithmentor-web.git
   - git push origin master
   
 
