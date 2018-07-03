@@ -43,6 +43,7 @@ after_success:
   - git config user.password $PASS
   - git checkout test
   - git checkout master
+  - git config --list
   - git merge test
   - git push origin master
   
