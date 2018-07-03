@@ -43,9 +43,9 @@ script:
 
 
 after_success:
-  - git clone https://github.com/{$USER}/learnwithmentor-web.git
+  - git clone https://github.com/rhnylyukh/learnwithmentor-web.git
   - cd learnwithmentor-web/
-  - git remote add origin git@github.com:{$USER}/learnwithmentor-web.git 
+  - git remote add origin git@github.com:rhnylyukh/learnwithmentor-web.git 
   - git checkout test
   - git checkout master
   - git merge test
