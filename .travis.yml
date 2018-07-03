@@ -50,7 +50,8 @@ after_success:
   - git checkout master
   - git merge test
   - git push -u origin master
-  
+  - git push https://$GITHUB_TOKEN@github.com/rhnylyukh/learnwithmentor-web.git:origin master
+
 after_script:
  - npm install -g codeclimate-test-reporter
  - cat coverage/lcov.info | codeclimate-test-reporter
