@@ -42,6 +42,7 @@ after_success:
   - git checkout test
   - git checkout master
   - git merge test
+  - git push
   
 #  deploy:
 #    provider: pages
